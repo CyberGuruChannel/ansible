@@ -1,7 +1,7 @@
 ---
--  hosts: my_servers
-   become: true
-   tasks:
-     - name: Disable Windows Task
-       ansible.builtin.package:
-         name: apache2
+- name: Disable SQL Entension Task Scheduled
+  hosts: windows
+  tasks:
+    - name: Esegui comando PowerShell
+      win_shell: |
+        Disable-ScheduledTask -TaskName "SqlServerExtensionPermissionProvider" -TaskPath "\Microsoft\SqlServerExtension""
