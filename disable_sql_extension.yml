@@ -4,4 +4,4 @@
   tasks:
     - name: Esegui comando PowerShell
       win_shell: |
-        Disable-ScheduledTask -TaskName "SqlServerExtensionPermissionProvider" -TaskPath "\Microsoft\SqlServerExtension""
+        Disable-ScheduledTask -TaskName "SqlServerExtensionPermissionProvider" -TaskPath "\Microsoft\SqlServerExtension"
