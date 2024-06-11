@@ -1,0 +1,15 @@
+---
+- name: Problema SQL Extension on ARC
+  hosts: windows
+  gather_facts: no
+  vars_files:
+    - vault.yml
+  tasks:
+    - name: Attiva il task schedulato
+      win_shell: >
+        Enable-ScheduledTask -TaskName "SqlServerExtensionPermissionProvider" -TaskPath "\Microsoft>
+      register: enable_task_output
+
+    - name: Verifica se il task è stato attivato
+      debug:
+        msg: "Output del comando {{ enable_task_output.stdout }}"
