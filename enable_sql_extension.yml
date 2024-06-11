@@ -7,7 +7,7 @@
   tasks:
     - name: Attiva il task schedulato
       win_shell: >
-        Enable-ScheduledTask -TaskName "SqlServerExtensionPermissionProvider" -TaskPath "\Microsoft>
+        Enable-ScheduledTask -TaskName 'SqlServerExtensionPermissionProvider' -TaskPath '\Microsoft\SqlServerExtension'
       register: enable_task_output
 
     - name: Verifica se il task è stato attivato
