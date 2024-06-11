@@ -1,7 +1,15 @@
 ---
 - name: Disable SQL Entension Task Scheduled
   hosts: windows
+  gather_facts: no
+
   tasks:
     - name: Esegui comando PowerShell
       win_shell: |
         Disable-ScheduledTask -TaskName "SqlServerExtensionPermissionProvider" -TaskPath "\Microsoft\SqlServerExtension"
+      register: disable_task_output
+    - name: Verifica se il task è stato disattivato
+      debug:
+        msg: "Output del comando {{ disable_task_output.stdout }}"
+
+
